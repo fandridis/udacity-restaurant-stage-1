@@ -40,6 +40,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   min-height: 100%;
 }
 #footer {
+  width: 100%;
   background-color: #444;
   color: #aaa;
   font-size: 8pt;
@@ -196,6 +197,20 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Details ====================== */
+
+#maincontent {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 50%  50%;
+  grid-template-areas:
+             "restaurant-details  map"
+             "restaurant-comments map";
+}
+.inside #map-container { grid-area: map; }
+#restaurant-container { grid-area: restaurant-details; }
+#reviews-container { grid-area: restaurant-comments; }
+
+
 .inside header {
   position: fixed;
   top: 0;
@@ -204,11 +219,11 @@ nav h1 a {
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
+  /*height: 87%;
   position: fixed;
   right: 0;
   top: 80px;
-  width: 50%;
+  width: 50%;*/
 }
 .inside #map {
   background-color: #ccc;
@@ -249,14 +264,14 @@ nav h1 a {
   text-transform: uppercase;
 	width: 90%;
 }
-#restaurant-container, #reviews-container {
-  border-bottom: 1px solid #d9d9d9;
+#restaurant-container, 
+#reviews-container {
+  /*border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 50%;
+  padding: 140px 40px 30px;*/
 }
 #reviews-container {
-  padding: 30px 40px 80px;
+  /*padding: 30px 40px 80px;*/
 }
 #reviews-container h2 {
   color: #f58500;
@@ -291,6 +306,16 @@ nav h1 a {
 
 /*  ========================== MEDIA QUERIES =========================== */
 
+@media only screen and (max-width: 1000px) {
+  #maincontent {
+    grid-template-columns: 100%;
+    grid-template-areas:
+               "restaurant-details"
+               "restaurant-comments"
+               "map";
+  }
+}
+
 @media only screen and (max-width: 700px) {
   nav h1 a {
     font-size: 14pt;
@@ -319,3 +344,6 @@ nav h1 a {
     flex-direction: column; 
   }
 }
+
+
+
