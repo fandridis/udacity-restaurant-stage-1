@@ -30,7 +30,8 @@ a img{
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0 0 20px;
+  margin: 0 0 10px;
+  padding: 0px;
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -40,13 +41,12 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   min-height: 100%;
 }
 #footer {
-  margin-top: 100px;
   width: 100%;
   background-color: #444;
   color: #aaa;
   font-size: 8pt;
   letter-spacing: 1px;
-  padding: 25px;
+  padding: 20px 0px 20px 0px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -341,6 +341,7 @@ nav h1 a {
 
 @media only screen and (max-width: 700px) {
   nav h1 a {
+    padding: 5px;
     font-size: 14pt;
   }
   .filter-options h2 {
@@ -352,6 +353,9 @@ nav h1 a {
 }
 
 @media only screen and (max-width: 520px) {
+  nav h1 a {
+    font-size: 12pt;
+  }
   .filter-options {
     justify-content: center;
     min-width: 150px;
@@ -361,7 +365,7 @@ nav h1 a {
 
 @media only screen and (max-width: 340px) {
   .filter-options h2 { 
-    padding-top: 10px; 
+    padding-top: 8px; 
   }
   .select-inputs { 
     flex-direction: column; 

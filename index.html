@@ -18,16 +18,16 @@
   
     <main id="maincontent-home">
       <section id="map-container">
-        <div id="map"></div>
+        <div id="map" aria-label="location" role="application"></div>
       </section>
       <section>
         <div class="filter-options">
           <h2>Filter Results</h2>
           <div class="select-inputs">
-            <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+            <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-label="Select Neighborhood">
               <option value="all">All Neighborhoods</option>
             </select>
-            <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+            <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-label="Select Quisine">
               <option value="all">All Cuisines</option>
             </select>
           </div>
@@ -41,6 +41,19 @@
     <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUkDMDYlBt8M2DXyE_KzmY_VksKxdkDxM&libraries=places&callback=initMap"></script>
   
+    <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js')
+        .then(function (registration) {
+          console.log('ServiceWorker registration successful: ', registration.scope);
+        }, function (err) {
+          console.log('ServiceWorker registration error: ', err);
+        });
+      });
+    }
+  </script>
   
     <footer id="footer">
       Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
